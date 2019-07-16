@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+from dnvchecker.run import *
+import argparse
+
+
+parser = argparse.ArgumentParser(prog = "dnvchecker")
+
+parser.add_argument("--version", action = "version", version = "dnvchecker-0.1.0")
+ 
+parser.add_argument("MAF_file", metavar = "input.maf", type = str,
+                    help = "the path to input MAF file")
+
+parser.add_argument("output_file", metavar = "output.txt", type = str,
+                    help = "the path to output file")
+
+parser.add_argument("--gene", type = str, default = "",
+                    help = "specify the gene you want to check (if you want to choose multiple genes, separate them with colon) (default: all genes)")
+
+parser.add_argument("--sample", type = str, default = "",
+                    help = "specify the sample you want to check (if you want to choose multiple samples, separate them with colon) (default: all samples)")
+
+parser.add_argument("--vcf2maf_path", type = str, default = "/home/ysaito/bin/vcf2maf-1.6.16", 
+                    help = "the path to vcf2maf folder (default: %(default)s)")
+
+parser.add_argument("--ref_genome_path", type = str, default = "/home/ysaito/.vep/homo_sapiens/95_GRCh37/Homo_sapiens.GRCh37.75.dna.primary_assembly.fa.gz", 
+                    help = "the path to reference genome (default: %(default)s)")
+
+parser.add_argument("--vep_path", type = str, default = "/home/ysaito/vep", 
+                    help = "the path to Variant Effect Predictor(VEP) (default: %(default)s)")
+
+parser.add_argument("--vep_data_path", type = str, default = "/home/ysaito/.vep", 
+                    help = "the path to Variant Effect Predictor(VEP) data (default: %(default)s)")
+
+parser.add_argument("--filter_vcf", type = str, default = "/home/ysaito/.vep/ExAC_nonTCGA.r0.3.1.sites.vep.vcf.gz", 
+                    help = "A VCF for FILTER tag common_variant (default: %(default)s)")
+
+parser.add_argument("--debug", default = False, action = 'store_true', help = "keep intermediate files")
+
+parser.add_argument("--sample_list", type = str, default = "",
+                    help = "the path to sample list")
+
+parser.add_argument("--split", default = False, action = 'store_true', 
+                    help = "use split mode (appropriate for large dataset)")
+
+args = parser.parse_args()
+
+main(args) 
