@@ -32,9 +32,8 @@ python setup.py install --user
 ```
 
 ```
-$ dnv
-checker -h
-usage: dnpchecker [-h] [--version] [--gene GENE] [--sample SAMPLE] [--vcf2maf_path VCF2MAF_PATH] [--ref_genome_path REF_GENOME_PATH] [--vep_path VEP_PATH] [--vep_data_path VEP_DATA_PATH] [--filter_vcf FILTER_VCF] [--debug] [--sample_list SAMPLE_LIST] [--split SPLIT]
+$ dnvchecker -h
+usage: dnvchecker [-h] [--version] [--gene GENE] [--sample SAMPLE] [--vcf2maf_path VCF2MAF_PATH] [--ref_genome_path REF_GENOME_PATH] [--vep_path VEP_PATH] [--vep_data_path VEP_DATA_PATH] [--filter_vcf FILTER_VCF] [--debug] [--sample_list SAMPLE_LIST] [--split SPLIT]
                   input.maf output.txt
 
 positional arguments:
