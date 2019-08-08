@@ -57,7 +57,7 @@ def modify_df(maf_file, output_file, gene, sample):
         logger.error('necessary columns are not in the list')
         exit(1)
 
-    df_s = df.sort(['Tumor_Sample_Barcode', 'Matched_Norm_Sample_Barcode', 'Chromosome', 'Start_Position', 'Strand'])
+    df_s = df.sort_values(['Tumor_Sample_Barcode', 'Matched_Norm_Sample_Barcode', 'Chromosome', 'Start_Position', 'Strand'])
     df_s.to_csv(output_file, sep='\t', index = False)
 
 
@@ -252,7 +252,7 @@ def maf2maf2(input_file, output_file, ref, path, vep_path, vep_data_path, filter
 
 def file_merge(input_file, output_file):
 
-  chunk_number = -(-(sum(1 for row in open(input_file, 'r')) - 1) // 200)
+  chunk_number = -(-(sum(1 for row in open(input_file, 'r')) - 1) // 100)
   input_df = pd.read_csv(input_file, sep='\t')
   cols = input_df.columns.values
 
